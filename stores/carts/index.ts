@@ -30,20 +30,16 @@ export const cartSlice = createSlice({
 					dlv(action, 'payload.product.data.id')
 			);
 
+			const sumProductPrice =
+				dlv(action, 'payload.product.data.attributes.price') *
+				dlv(action, 'payload.quantity');
 			if (exitingProduct) {
-				const sumExitingProductPrice =
-					dlv(action, 'payload.product.data.attributes.price') *
-					dlv(action, 'payload.quantity');
-
 				exitingProduct.quantity += action.payload.quantity; //ตัวจำนวนตัวซ้ำ;
-				state.totalPrice += sumExitingProductPrice;
+				state.totalPrice += sumProductPrice;
 			} else {
 				state.productList.push(action.payload);
 				state.totalProducts += 1;
-				state.totalPrice += dlv(
-					action,
-					'payload.product.data.attributes.price'
-				);
+				state.totalPrice += sumProductPrice;
 			}
 		},
 	},
