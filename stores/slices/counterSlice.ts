@@ -1,3 +1,4 @@
+import { RootState } from './../index';
 import { createSlice } from '@reduxjs/toolkit';
 
 export interface ICounterState {
@@ -21,4 +22,5 @@ export const counterSlice = createSlice({
 });
 
 export const { increment, decrement } = counterSlice.actions;
+
 export default counterSlice.reducer;
