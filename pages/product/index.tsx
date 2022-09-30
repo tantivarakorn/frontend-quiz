@@ -17,8 +17,8 @@ export interface IProductData {
 }
 
 export interface IProduct {
-	id: number;
-	attributes: {
+	id?: number;
+	attributes?: {
 		description: string;
 		image_url: string;
 		name: string;
@@ -39,23 +39,19 @@ export interface IProduct {
 }
 
 const ProductPage: NextPage<IProductData> = (data) => {
-	// const carts = useSelector((state: RootState) => state.carts);
-	// console.log('carts', carts);
-
-	// console.log('ProductPage data', data);
-
 	return (
 		<Fragment>
-			<ProductComponent products={data} />
+			{/* <ProductComponent products={data} /> */}
+			<ProductComponent />
 		</Fragment>
 	);
 };
 export default ProductPage;
 
-export async function getServerSideProps() {
-	const appProps = await api.product.get();
+// export async function getServerSideProps() {
+// 	const appProps = await api.product.get();
 
-	return {
-		props: appProps.data,
-	};
-}
+// 	return {
+// 		props: appProps.data,
+// 	};
+// }

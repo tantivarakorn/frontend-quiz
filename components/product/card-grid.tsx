@@ -17,8 +17,9 @@ const ProductCardGrid: React.FC<{ product: IProduct }> = ({ product }) => {
 				{dlv(product, 'attributes.image_url') ? (
 					<Image
 						src={dlv(product, 'attributes.image_url')}
-						alt="brand-logo"
+						alt="product-img"
 						layout="fill"
+						priority
 						className="object-cover rounded-lg"
 					/>
 				) : (
