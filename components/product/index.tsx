@@ -6,7 +6,6 @@ import ProductCardGrid from './card-grid';
 import ProductCardList from './card-list';
 import api from '../../services/axios';
 
-// const ProductComponent = ({ products }: { products: IProductData }) => {
 const ProductComponent = () => {
 	const [selectedView, setSelectedView] = useState<'grid' | 'list'>('grid');
 	const [products, setProducts] = useState<IProductData>({});
@@ -25,7 +24,7 @@ const ProductComponent = () => {
 
 	return (
 		<Fragment>
-			<div className="flex flex-row items-center justify-between h-[40px] ">
+			<div className="flex flex-row items-center justify-between h-[40px] px-6 md:px-0">
 				<h1 className="text-base text-[#484848] font-semibold">{`Products (${dlv(
 					products,
 					'meta.pagination.total',

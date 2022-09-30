@@ -10,7 +10,7 @@ const ProductCardGrid: React.FC<{ product: IProduct }> = ({ product }) => {
 
 	return (
 		<div
-			className="flex flex-col gap-4 w-[250px] h-[366px] rounded-lg bg-white hover:shadow-lg transform hover:-translate-y-2 duration-200 cursor-pointer"
+			className="flex flex-col gap-4 w-[250px] h-[366px] rounded-lg bg-white hover:shadow-md transform hover:-translate-y-1 duration-300 cursor-pointer"
 			onClick={() => router.push(`/product/detail/${product.id}`)}
 		>
 			<div className="relative w-[250px] h-[250px] rounded-lg">

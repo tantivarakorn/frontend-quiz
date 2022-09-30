@@ -1,12 +1,17 @@
 import dlv from 'dlv';
 import Image from 'next/image';
+import { useRouter } from 'next/router';
 import { IProduct } from '../../pages/product';
 import { utils } from '../../utils';
 import { StartBoldIcon, StartOutlineIcon } from './icon';
 
-const ProductCardList = ({ product }: { product: IProduct }) => {
+const ProductCardList: React.FC<{ product: IProduct }> = ({ product }) => {
+	const router = useRouter();
 	return (
-		<div className="flex flex-row gap-6 p-6 w-full h-[110px] rounded-lg bg-white">
+		<div
+			className="flex flex-row gap-6 p-6 w-full h-[110px] rounded-lg bg-white hover:shadow-md transform duration-300 cursor-pointer"
+			onClick={() => router.push(`/product/detail/${product.id}`)}
+		>
 			<div className="flex shrink-0 relative w-[60px] h-[60px] rounded-lg">
 				{dlv(product, 'attributes.image_url') ? (
 					<Image

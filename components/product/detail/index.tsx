@@ -30,7 +30,6 @@ const ProductDetailComponent: React.FC = () => {
 	const router = useRouter();
 	const productId = dlv(router, 'query.productid');
 	const [product, setProduct] = useState<IProductDetail>({});
-	const carts = useSelector(getCarts);
 	const dispatch = useDispatch();
 
 	useEffect(() => {
@@ -68,8 +67,8 @@ const ProductDetailComponent: React.FC = () => {
 	return (
 		<Fragment>
 			{dlv(product, 'data.id') ? (
-				<div className="flex flex-row gap-6 mt-[18px] w-full h-[448px] bg-white rounded-2xl p-6">
-					<div className="relative flex shrink-0 w-[400px] h-[400px] rounded-2xl">
+				<div className="flex flex-col md:flex-row gap-6 mt-[18px] w-full h-full lg:h-[448px] bg-white rounded-2xl p-6">
+					<div className="relative flex shrink-0 w-[400px] h-[400px] rounded-2xl mx-auto">
 						{dlv(product, 'data.attributes.image_url') ? (
 							<Image
 								src={dlv(product, 'data.attributes.image_url')}
@@ -87,7 +86,7 @@ const ProductDetailComponent: React.FC = () => {
 							{dlv(product, 'data.attributes.name', '')}
 						</h1>
 						<div className="flex flex-row items-center space-x-4 mb-3">
-							<div className="flex flex-row items-center">
+							<div className="flex flex-row">
 								{[1, 2, 3, 4, 5].map((i) => {
 									let ShowIcon;
 									if (
@@ -128,10 +127,10 @@ const ProductDetailComponent: React.FC = () => {
 										).toFixed(2)
 									)}
 								</span>
-								{/* ไม่มีข้อมูลราคาเต็ม */}
-								<span className="text-sm text-[#939393] font-normal line-through">
+								{/* ไม่มีข้อมูลราคาก่อนลด */}
+								{/* <span className="text-sm text-[#939393] font-normal line-through">
 									{utils.priceFormat((12000).toFixed(2))}
-								</span>
+								</span> */}
 							</div>
 						</div>
 						<div className="flex flex-row items-center justify-between w-[254px] h-[38px]">
