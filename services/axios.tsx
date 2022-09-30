@@ -1,7 +1,7 @@
 import axios, { AxiosRequestConfig } from 'axios';
 
 const instance = axios.create({
-	baseURL: 'https://cc-quiz-api.herokuapp.com/api',
+	// baseURL: 'https://cc-quiz-api.herokuapp.com/api',
 	timeout: 300000,
 	withCredentials: true,
 });
@@ -15,8 +15,9 @@ instance.interceptors.request.use((config) => {
 
 const api = {
 	product: {
-		get: () => instance.get(`/products?populate=brand`),
-		getDetailById: (id: number) => instance.get(`/products/${id}`),
+		get: () => instance.get(`/cc-quiz-api/products?populate=brand`),
+		getDetailById: (id: number) =>
+			instance.get(`/cc-quiz-api/products/${id}`),
 	},
 };
 
