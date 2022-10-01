@@ -4,6 +4,7 @@ import { useRouter } from 'next/router';
 import { IProduct } from '../../pages/product';
 import { utils } from '../../utils';
 import { StartBoldIcon, StartOutlineIcon } from './icon';
+import RatingComponent from './rating-start';
 
 const ProductCardList: React.FC<{ product: IProduct }> = ({ product }) => {
 	const router = useRouter();
@@ -40,17 +41,9 @@ const ProductCardList: React.FC<{ product: IProduct }> = ({ product }) => {
 						)}
 					</h2>
 				</div>
-				<div className="flex flex-row">
-					{[1, 2, 3, 4, 5].map((i) => {
-						let ShowIcon;
-						if (i <= dlv(product, 'attributes.review.rating', 0)) {
-							ShowIcon = StartBoldIcon;
-						} else {
-							ShowIcon = StartOutlineIcon;
-						}
-						return <ShowIcon key={`i-${i}`} />;
-					})}
-				</div>
+				<RatingComponent
+					rating={dlv(product, 'attributes.review.rating', 0)}
+				/>
 				<div>
 					<h3 className="text-xs text-[#939393] font-normal">{`Reviews (${dlv(
 						product,

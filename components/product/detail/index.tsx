@@ -6,8 +6,9 @@ import Image from 'next/image';
 import { StartBoldIcon, StartOutlineIcon } from '../icon';
 import { BagTick } from 'iconsax-react';
 import { utils } from '../../../utils';
-import { useDispatch, useSelector } from 'react-redux';
-import { addToCart, getCarts, ICartSlice } from '../../../stores/carts';
+import { useDispatch } from 'react-redux';
+import { addToCart, ICartSlice } from '../../../stores/carts';
+import RatingComponent from '../rating-start';
 
 export interface IProductDetail {
 	data?: {
@@ -86,24 +87,13 @@ const ProductDetailComponent: React.FC = () => {
 							{dlv(product, 'data.attributes.name', '')}
 						</h1>
 						<div className="flex flex-row items-center space-x-4 mb-3">
-							<div className="flex flex-row">
-								{[1, 2, 3, 4, 5].map((i) => {
-									let ShowIcon;
-									if (
-										i <=
-										dlv(
-											product,
-											'data.attributes.review.rating',
-											0
-										)
-									) {
-										ShowIcon = StartBoldIcon;
-									} else {
-										ShowIcon = StartOutlineIcon;
-									}
-									return <ShowIcon key={`i-${i}`} />;
-								})}
-							</div>
+							<RatingComponent
+								rating={dlv(
+									product,
+									'data.attributes.review.rating',
+									0
+								)}
+							/>
 							<span className="text-sm text-[#A4A4A4]">{`(${dlv(
 								product,
 								'data.attributes.review.number',

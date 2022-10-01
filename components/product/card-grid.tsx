@@ -4,6 +4,7 @@ import { useRouter } from 'next/router';
 import { IProduct } from '../../pages/product';
 import { utils } from '../../utils';
 import { StartBoldIcon, StartOutlineIcon } from './icon';
+import RatingComponent from './rating-start';
 
 const ProductCardGrid: React.FC<{ product: IProduct }> = ({ product }) => {
 	const router = useRouter();
@@ -71,24 +72,13 @@ const ProductCardGrid: React.FC<{ product: IProduct }> = ({ product }) => {
 								'attributes.review.number',
 								'0'
 							)} reviews)`}</h3>
-							<div className="flex flex-row">
-								{[1, 2, 3, 4, 5].map((i) => {
-									let ShowIcon;
-									if (
-										i <=
-										dlv(
-											product,
-											'attributes.review.rating',
-											0
-										)
-									) {
-										ShowIcon = StartBoldIcon;
-									} else {
-										ShowIcon = StartOutlineIcon;
-									}
-									return <ShowIcon key={`i-${i}`} />;
-								})}
-							</div>
+							<RatingComponent
+								rating={dlv(
+									product,
+									'attributes.review.rating',
+									0
+								)}
+							/>
 						</div>
 					</div>
 				</div>
