@@ -34,7 +34,7 @@ export const cartSlice = createSlice({
 				dlv(action, 'payload.product.data.attributes.price') *
 				dlv(action, 'payload.quantity');
 			if (exitingProduct) {
-				exitingProduct.quantity += action.payload.quantity; //ตัวจำนวนตัวซ้ำ;
+				exitingProduct.quantity += action.payload.quantity; //ตัวบวกจำนวนตัวซ้ำ;
 				state.totalPrice += sumProductPrice;
 			} else {
 				state.productList.push(action.payload);

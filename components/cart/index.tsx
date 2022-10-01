@@ -7,7 +7,6 @@ import { utils } from '../../utils';
 
 const CartComponent: React.FC = () => {
 	const carts = useSelector(getCarts);
-	console.log('carts', carts);
 
 	const products = dlv(carts, 'productList', []);
 	return (

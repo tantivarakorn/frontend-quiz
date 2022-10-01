@@ -1,11 +1,6 @@
 import { NextPage } from 'next';
-import Link from 'next/link';
 import { Fragment } from 'react';
-import { useSelector } from 'react-redux';
 import ProductComponent from '../../components/product';
-
-import api from '../../services/axios';
-import { RootState } from '../../stores';
 
 export interface IProductData {
 	data?: IProduct[];
@@ -41,17 +36,8 @@ export interface IProduct {
 const ProductPage: NextPage<IProductData> = (data) => {
 	return (
 		<Fragment>
-			{/* <ProductComponent products={data} /> */}
 			<ProductComponent />
 		</Fragment>
 	);
 };
 export default ProductPage;
-
-// export async function getServerSideProps() {
-// 	const appProps = await api.product.get();
-
-// 	return {
-// 		props: appProps.data,
-// 	};
-// }

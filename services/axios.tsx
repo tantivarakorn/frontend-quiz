@@ -1,7 +1,6 @@
-import axios, { AxiosRequestConfig } from 'axios';
+import axios from 'axios';
 
 const instance = axios.create({
-	// baseURL: 'https://cc-quiz-api.herokuapp.com/api',
 	timeout: 300000,
 	withCredentials: true,
 });

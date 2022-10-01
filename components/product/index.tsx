@@ -16,7 +16,7 @@ const ProductComponent = () => {
 				const { data } = await api.product.get();
 				setProducts(data);
 			} catch (error) {
-				console.log('error', { error });
+				console.log(error);
 			}
 		};
 		getProducts();
