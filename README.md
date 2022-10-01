@@ -1,6 +1,6 @@
-## ChomCHOB Front-end Quiz.
+# ChomCHOB Front-end Quiz.
 
-#### Prerequisite
+### Prerequisite
 
 ```bash
 node >= v16.17.0
